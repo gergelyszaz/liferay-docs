@@ -199,6 +199,7 @@ filtering the output:
 - `source`: Shows the source differences between the two patch levels.
 - `files`: Shows a list of the modified files.
 - `fixed-issues`: Shows a list of LPS/LPE issues from our issue tracking system.
+- `collisions`: Shows a list of modified files which collide with deployed plugins.
 
 For detailed usage information, run `patching-tool help diff`.
 
@@ -212,6 +213,21 @@ the "diff" command. This command has four options:
 - `rm`: Removes previously stored patch level information.
 
 For detailed usage information, run `patching-tool help store`.
+
+## Showing collisions between patches and deployed plugins [](id=list-collisions)
+
+Some patches update files which can be customized through plugins. 
+In these cases the customizations will need to be updated.
+To help identifying which files are affected, run the `patching-tool list-collisions` command.
+This command is an alias for the "diff" command and is equivalent to running the following:
+
+    patching-tool diff collisions files _base
+	
+`_base` is the name of the patch level which will be used as the base for the current patch level.
+`_base` patch level is automatically stored after installing patches.
+Patches must contain source code.
+
+**Note:** As of Patching Tool 2.0.9, only collisions on jsp files in fragment bundles are shown.
 
 ## Separating the Patches from the @product@ Installation [](id=separating-the-patches-from-the-product-installation)
 
