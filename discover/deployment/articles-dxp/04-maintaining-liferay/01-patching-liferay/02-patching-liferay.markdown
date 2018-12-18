@@ -222,10 +222,8 @@ To help identifying which files are affected, run the `patching-tool list-collis
 This command is an alias for the "diff" command and is equivalent to running the following:
 
     patching-tool diff collisions files _base
-	
-`_base` is the name of the patch level which will be used as the base for the current patch level.
-`_base` patch level is automatically stored after installing patches.
-Patches must contain source code.
+
+To be able to use this feature, installed patches must contain source code.
 
 **Note:** As of Patching Tool 2.0.9, only collisions on jsp files in fragment bundles are shown.
 
